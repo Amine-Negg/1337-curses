@@ -282,6 +282,135 @@ int	main(void)
 		}
 	}
 
+
+	printf("\n========== FT_STRNCMP ==========\n");
+
+	printf("Test 1: %d\n", ft_strncmp("ABC", "ABC", 3));
+	printf("Test 2: %d\n", ft_strncmp("ABC", "ABD", 3));
+	printf("Test 3: %d\n", ft_strncmp("ABC", "ABCD", 4));
+	printf("Test 4: %d\n", ft_strncmp("HELLO", "HELP", 3));
+	printf("Test 5: %d\n", ft_strncmp("ABC", "XYZ", 0));
+	printf("Test 6: %d\n", ft_strncmp("", "ABC", 3));
+
+
+
+	printf("\n========== FT_ATOI ==========\n");
+
+	printf("Test 1: ft=%d | original=%d\n",
+		ft_atoi("42"), atoi("42"));
+
+	printf("Test 2: ft=%d | original=%d\n",
+		ft_atoi("-42"), atoi("-42"));
+
+	printf("Test 3: ft=%d | original=%d\n",
+		ft_atoi("   +123"), atoi("   +123"));
+
+	printf("Test 4: ft=%d | original=%d\n",
+		ft_atoi("123abc"), atoi("123abc"));
+
+	printf("Test 5: ft=%d | original=%d\n",
+		ft_atoi("abc123"), atoi("abc123"));
+
+	printf("Test 6: ft=%d | original=%d\n",
+		ft_atoi("--42"), atoi("--42"));
+
+	printf("Test 7: ft=%d | original=%d\n",
+		ft_atoi("+-42"), atoi("+-42"));
+
+	printf("Test 8: ft=%d | original=%d\n",
+		ft_atoi("\t\n -567"), atoi("\t\n -567"));
+	printf("Test 8: ft=%d | original=%d\n",
+		ft_atoi("     2147483647uv"), atoi("  2147483647"));
+	printf("Test 8: ft=%d | original=%d\n",
+		ft_atoi("     2147483649"), atoi("  2147483649"));
+
+
+
+	printf("\n====================================\n");
+	printf("         FT_STRLCPY TEST\n");
+	printf("====================================\n");
+
+	{
+    	char src[] = "Hello World";
+    	char dst[20] = "AAAAAAAAAAAAAAAAAAA";
+    	size_t result;
+
+    	printf("\n--- TEST 1: Enough space ---\n");
+    	printf("Source before: %s\n", src);
+    	printf("Destination before: %s\n", dst);
+
+    	result = ft_strlcpy(dst, src, sizeof(dst));
+
+    	printf("Destination after: %s\n", dst);
+    	printf("Return value: %zu\n", result);
+    	printf("Expected: Hello World | Return: 11\n");
+	}
+
+	{
+    	char src[] = "Hello World";
+    	char dst[5] = "AAAA";
+    	size_t result;
+
+    	printf("\n--- TEST 2: Small destination ---\n");
+    	printf("Source: %s\n", src);
+    	printf("Destination before: %s\n", dst);
+
+    	result = ft_strlcpy(dst, src, sizeof(dst));
+
+    	printf("Destination after: %s\n", dst);
+    	printf("Return value: %zu\n", result);
+    	printf("Expected: Hell | Return: 11\n");
+	}
+
+	{
+    	char src[] = "Hello";
+    	char dst[5] = "ABCD";
+    	size_t result;
+
+    	printf("\n--- TEST 3: dstsize = 0 ---\n");
+    	printf("Destination before: %s\n", dst);
+
+    	result = ft_strlcpy(dst, src, 0);
+
+    	printf("Destination after: %s\n", dst);
+    	printf("Return value: %zu\n", result);
+    	printf("Expected: ABCD | Return: 5\n");
+	}
+
+	{
+    	char src[] = "Hello";
+    	char dst[5] = "ABCD";
+    	size_t result;
+
+    	printf("\n--- TEST 4: dstsize = 1 ---\n");
+
+    	result = ft_strlcpy(dst, src, 1);
+
+    	printf("Destination after: \"%s\"\n", dst);
+    	printf("First byte value: %d\n", (unsigned char)dst[0]);
+    	printf("Return value: %zu\n", result);
+    	printf("Expected: \"\" | First byte: 0 | Return: 5\n");
+	}
+
+	{
+    	char src[] = "";
+    	char dst[10] = "AAAA";
+    	size_t result;
+
+    	printf("\n--- TEST 5: Empty source ---\n");
+
+    	result = ft_strlcpy(dst, src, sizeof(dst));
+
+    	printf("Destination after: \"%s\"\n", dst);
+    	printf("Return value: %zu\n", result);
+    	printf("Expected: \"\" | Return: 0\n");
+	}
+
+
+
+
+
+
 	printf("\n======================================\n");
 	printf("          END OF LIBFT TESTS\n");
 	printf("======================================\n");
