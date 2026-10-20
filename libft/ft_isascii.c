@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohanegg <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/13 17:38:15 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/13 17:40:48 by mohanegg         ###   ########.fr       */
+/*   Created: 2026/10/20 00:42:52 by mohanegg          #+#    #+#             */
+/*   Updated: 2026/10/20 00:42:54 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
-	{
 		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 17:03:38 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/18 17:29:10 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/20 00:41:40 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 int	ft_atoi(const char *str)
 {
-    int i;
-    int r;
-    int s;
+	int	i;
+	int	r;
+	int	s;
 
-    i = 0;
-    r = 0;
-    s = 1;
-    while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-    {
-        i++;
-    }
-    if (str[i] == '-' || str[i] == '+')
-    {
-        if (str[i] == '-')
-        {
-            s *= -1;
-        }
-        i++;
-    }
-    while (str[i] >= '0' && str[i] <= '9')
-    {
-        r = r * 10 + (str[i] - '0');
-        i++;
-    }
-    return (r * s);
+	i = 0;
+	r = 0;
+	s = 1;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+	{
+		i++;
+	}
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			s *= -1;
+		}
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		r = r * 10 + (str[i] - '0');
+		i++;
+	}
+	return (r * s);
 }
