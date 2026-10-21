@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   main.c                                            :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: mohanegg <mohanegg@student.1337.ma>       #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/20 00:17:48 by mohanegg         #+#    #+#              */
-/*   Updated: 2026/10/20 00:18:24 by mohanegg        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/20 00:17:48 by mohanegg          #+#    #+#             */
+/*   Updated: 2026/10/20 17:45:50 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,6 +335,45 @@ int	main(void)
 		printf("Return value: %zu\n", result);
 		printf("Expected: \"\" | Return: 0\n");
 	}
+	
+
+
+
+	printf("\n========== FT_STRLCAT ==========\n");
+
+	{
+		char dst[12] = "Hello ";
+		size_t result;
+
+		result = ft_strlcat(dst, "World", sizeof(dst));
+		printf("Test 1: %s | Return: %zu\n", dst, result);
+	}
+
+	{
+		char dst[8] = "Hello";
+		size_t result;
+
+		result = ft_strlcat(dst, "World", sizeof(dst));
+		printf("Test 2: %s | Return: %zu\n", dst, result);
+	}
+
+	{
+		char dst[5] = "Hell";
+		size_t result;
+
+		result = ft_strlcat(dst, "World", 4);
+		printf("Test 3: %s | Return: %zu\n", dst, result);
+	}
+
+	{
+		char dst[5] = "ABC";
+		size_t result;
+
+		result = ft_strlcat(dst, "XYZ", 0);
+		printf("Test 4: %s | Return: %zu\n", dst, result);
+	}
+
+
 	printf("\n======================================\n");
 	printf("          END OF LIBFT TESTS\n");
 	printf("======================================\n");

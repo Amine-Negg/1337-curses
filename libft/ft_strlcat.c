@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 00:08:03 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/20 01:10:14 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/20 17:48:00 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		i++;
 		j++;
 	}
-	
-	return (dst);
+	dst[j] = '\0';
+	return (j - i + ft_strlen(src));
 }
