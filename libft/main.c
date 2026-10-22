@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 00:17:48 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/20 17:45:50 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/21 20:50:52 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -372,6 +372,12 @@ int	main(void)
 		result = ft_strlcat(dst, "XYZ", 0);
 		printf("Test 4: %s | Return: %zu\n", dst, result);
 	}
+
+	
+	
+	printf("\n========== FT_calloc ==========\n");
+		
+
 
 
 	printf("\n======================================\n");

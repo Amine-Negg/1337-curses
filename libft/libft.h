@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 20:19:01 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/21 20:39:54 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/22 02:20:08 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(const char *s1);
 
 #endif
