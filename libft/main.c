@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 00:17:48 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/21 20:50:52 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/22 03:19:00 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,7 +335,7 @@ int	main(void)
 		printf("Return value: %zu\n", result);
 		printf("Expected: \"\" | Return: 0\n");
 	}
-	
+
 
 
 
@@ -373,10 +373,21 @@ int	main(void)
 		printf("Test 4: %s | Return: %zu\n", dst, result);
 	}
 
-	
-	
-	printf("\n========== FT_calloc ==========\n");
-		
+
+
+	printf("\n========== FT_substr ==========\n");
+
+		char	*trrr;
+
+	trrr = ft_substr("HELLO WORLD", 6, 5);
+	printf("Test 1: \"%s\"\n", trrr);
+	free(trrr);
+	trrr = ft_substr("HELLO", 2, 100);
+	printf("Test 2: \"%s\"\n", trrr);
+	free(trrr);
+	trrr = ft_substr("HELLO", 20, 3);
+	printf("Test 3: \"%s\"\n", trrr);
+	free(trrr);
 
 
 
