@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 00:17:48 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/22 03:19:00 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:09:19 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -377,17 +377,29 @@ int	main(void)
 
 	printf("\n========== FT_substr ==========\n");
 
-		char	*trrr;
+	char	*trrr;
 
 	trrr = ft_substr("HELLO WORLD", 6, 5);
 	printf("Test 1: \"%s\"\n", trrr);
 	free(trrr);
-	trrr = ft_substr("HELLO", 2, 100);
+	trrr = ft_substr("1337", 0, 10);
 	printf("Test 2: \"%s\"\n", trrr);
 	free(trrr);
 	trrr = ft_substr("HELLO", 20, 3);
 	printf("Test 3: \"%s\"\n", trrr);
 	free(trrr);
+
+
+	printf("\n========= FT_strjoin =========\n");
+
+
+		char	*lok;
+
+	lok = ft_strjoin("Hello ", "1337");
+	if (!lok)
+		return (1);
+	printf("results is: %s\n", lok);
+	free(lok);
 
 
 

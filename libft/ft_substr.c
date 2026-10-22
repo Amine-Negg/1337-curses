@@ -6,10 +6,9 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 22:41:28 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/22 03:17:10 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:44:21 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 
@@ -38,4 +37,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
-
