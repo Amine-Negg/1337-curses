@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 00:17:48 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/24 07:18:11 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/24 21:53:03 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -433,6 +433,27 @@ int	main(void)
 		result = ft_strtrim("xyx42 Schoolzy", "xyz");
 		printf("Test 7: \"%s\" | Expected: \"42 School\"\n", result);
 		free(result);
+	}
+
+
+	printf("\n========== FT_SPLIT ==========\n");
+
+	{
+		char	**words;
+		size_t	i;
+
+		words = ft_split("42,,,Network,,1337", ',');
+		if (!words)
+			return (1);
+		i = 0;
+		while (words[i])
+		{
+			printf("word[%zu] = \"%s\"\n", i, words[i]);
+			free(words[i]);
+			i++;
+		}
+		printf("Total words: %zu\n", i);
+		free(words);
 	}
 
 
