@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 19:47:02 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/21 20:48:20 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/24 07:16:23 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	if (size != 0 && count > SIZE_MAX / size)
+	if (size != 0 && count > (size_t) - 1  / size)
 	{
 		return (NULL);
 	}

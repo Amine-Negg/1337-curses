@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 00:17:48 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/22 19:09:19 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/24 07:18:11 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -400,6 +400,40 @@ int	main(void)
 		return (1);
 	printf("results is: %s\n", lok);
 	free(lok);
+
+	printf("\n========== FT_STRTRIM ==========\n");
+
+	{
+		char	*result;
+
+		result = ft_strtrim("###HELLO###", "#");
+		printf("Test 1: \"%s\" | Expected: \"HELLO\"\n", result);
+		free(result);
+
+		result = ft_strtrim("abcHELLOcba", "abc");
+		printf("Test 2: \"%s\" | Expected: \"HELLO\"\n", result);
+		free(result);
+
+		result = ft_strtrim("Hello World", "x");
+		printf("Test 3: \"%s\" | Expected: \"Hello World\"\n", result);
+		free(result);
+
+		result = ft_strtrim("aaaa", "a");
+		printf("Test 4: \"%s\" | Expected: \"\"\n", result);
+		free(result);
+
+		result = ft_strtrim("", "abc");
+		printf("Test 5: \"%s\" | Expected: \"\"\n", result);
+		free(result);
+
+		result = ft_strtrim("   Hello 1337   ", " ");
+		printf("Test 6: \"%s\" | Expected: \"Hello 1337\"\n", result);
+		free(result);
+
+		result = ft_strtrim("xyx42 Schoolzy", "xyz");
+		printf("Test 7: \"%s\" | Expected: \"42 School\"\n", result);
+		free(result);
+	}
 
 
 
