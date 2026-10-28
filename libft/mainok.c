@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-/* Automatic Libft tester. This file is NOT part of libft.a. */
+/* Automatic Libft tester (39 implemented functions). Not part of libft.a. */
 /* Each test runs in a child process to contain crashes and infinite loops. */
 
 static int equal_sign(int a, int b)
@@ -408,6 +408,145 @@ static int t_putstr_fd(void) { return (fd_test(1)); }
 static int t_putendl_fd(void) { return (fd_test(2)); }
 static int t_putnbr_fd(void) { return (fd_test(3)); }
 
+/* Linked-list tests for functions completed so far. */
+
+static int t_lstnew(void)
+{
+    int content;
+    t_list *node;
+    t_list *empty;
+    int ok;
+
+    content = 1337;
+    node = ft_lstnew(&content);
+    empty = ft_lstnew(NULL);
+    ok = node != NULL && empty != NULL;
+    if (ok)
+        ok = node->content == &content && node->next == NULL
+            && empty->content == NULL && empty->next == NULL;
+    free(node);
+    free(empty);
+    return (ok);
+}
+
+static int t_lstadd_front(void)
+{
+    t_list *head;
+    t_list *first;
+    t_list *second;
+    int ok;
+
+    head = NULL;
+    first = ft_lstnew("1337");
+    second = ft_lstnew("42");
+    if (!first || !second)
+    {
+        free(first);
+        free(second);
+        return (0);
+    }
+    ft_lstadd_front(&head, first);
+    ok = head == first && first->next == NULL;
+    ft_lstadd_front(&head, second);
+    ok = ok && head == second && second->next == first
+        && first->next == NULL;
+    free(second);
+    free(first);
+    return (ok);
+}
+
+static int t_lstsize(void)
+{
+    t_list *first;
+    t_list *second;
+    t_list *third;
+    int ok;
+
+    if (ft_lstsize(NULL) != 0)
+        return (0);
+    first = ft_lstnew("A");
+    second = ft_lstnew("B");
+    third = ft_lstnew("C");
+    if (!first || !second || !third)
+    {
+        free(first);
+        free(second);
+        free(third);
+        return (0);
+    }
+    ok = ft_lstsize(first) == 1;
+    first->next = second;
+    second->next = third;
+    ok = ok && ft_lstsize(first) == 3 && ft_lstsize(second) == 2;
+    free(first);
+    free(second);
+    free(third);
+    return (ok);
+}
+
+static int t_lstlast(void)
+{
+    t_list *first;
+    t_list *second;
+    t_list *third;
+    int ok;
+
+    if (ft_lstlast(NULL) != NULL)
+        return (0);
+    first = ft_lstnew("A");
+    second = ft_lstnew("B");
+    third = ft_lstnew("C");
+    if (!first || !second || !third)
+    {
+        free(first);
+        free(second);
+        free(third);
+        return (0);
+    }
+    ok = ft_lstlast(first) == first;
+    first->next = second;
+    second->next = third;
+    ok = ok && ft_lstlast(first) == third
+        && ft_lstlast(second) == third && ft_lstlast(third) == third;
+    free(first);
+    free(second);
+    free(third);
+    return (ok);
+}
+
+static int t_lstadd_back(void)
+{
+    t_list *head;
+    t_list *first;
+    t_list *second;
+    t_list *third;
+    int ok;
+
+    head = NULL;
+    first = ft_lstnew("A");
+    second = ft_lstnew("B");
+    third = ft_lstnew("C");
+    if (!first || !second || !third)
+    {
+        free(first);
+        free(second);
+        free(third);
+        return (0);
+    }
+    ft_lstadd_back(&head, first);
+    ok = head == first && first->next == NULL;
+    ft_lstadd_back(&head, second);
+    ok = ok && head == first && first->next == second
+        && second->next == NULL;
+    ft_lstadd_back(&head, third);
+    ok = ok && head == first && second->next == third
+        && third->next == NULL;
+    free(first);
+    free(second);
+    free(third);
+    return (ok);
+}
+
 typedef int (*t_test_fn)(void);
 
 typedef struct s_test
@@ -455,37 +594,18 @@ int main(void)
 		{"ft_putchar_fd", t_putchar_fd},
 		{"ft_putstr_fd", t_putstr_fd},
 		{"ft_putendl_fd", t_putendl_fd},
-		{"ft_putnbr_fd", t_putnbr_fd}
+		{"ft_putnbr_fd", t_putnbr_fd},
+		{"ft_lstnew", t_lstnew},
+		{"ft_lstadd_front", t_lstadd_front},
+		{"ft_lstsize", t_lstsize},
+		{"ft_lstlast", t_lstlast},
+		{"ft_lstadd_back", t_lstadd_back}
 	};
 	size_t i;
 	int passed;
 	int ok;
 
-	printf("\n========== FT_LSTADD_FRONT ==========\n");
 
-{
-	t_list	*head;
-	t_list	*node1;
-	t_list	*node2;
-	int		ok;
-
-	head = NULL;
-	node1 = ft_lstnew("1337");
-	node2 = ft_lstnew("42");
-	ok = (node1 != NULL && node2 != NULL);
-	if (ok)
-	{
-		ft_lstadd_front(&head, node1);
-		ok = (head == node1 && head->next == NULL);
-		ft_lstadd_front(&head, node2);
-		ok = ok && head == node2;
-		ok = ok && head->next == node1;
-		ok = ok && node1->next == NULL;
-	}
-	printf("ft_lstadd_front : %s\n", ok ? "OK" : "KO");
-	free(node1);
-	free(node2);
-}
 
 	passed = 0;
 	i = 0;
