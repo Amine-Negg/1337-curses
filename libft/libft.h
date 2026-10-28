@@ -6,19 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 20:19:01 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/24 22:58:15 by mohanegg         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: student <student@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/24 00:00:00 by student           #+#    #+#             */
-/*   Updated: 2026/10/24 00:00:00 by student          ###   ########.fr       */
+/*   Updated: 2026/10/28 07:30:06 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +16,12 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -63,5 +57,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstnew(void *content);
+unsigned int	ft_lstsize(t_list *lst);
 
 #endif

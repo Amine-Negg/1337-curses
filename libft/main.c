@@ -6,7 +6,7 @@
 /*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 00:17:48 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/24 23:02:40 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/28 07:11:32 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -455,6 +455,32 @@ int	main(void)
 		printf("Total words: %zu\n", i);
 		free(words);
 	}
+
+	printf("\n========== FT_LSTADD_FRONT ==========\n");
+
+{
+	t_list	*head;
+	t_list	*node1;
+	t_list	*node2;
+	int		ok;
+
+	head = NULL;
+	node1 = ft_lstnew("1337");
+	node2 = ft_lstnew("42");
+	ok = (node1 != NULL && node2 != NULL);
+	if (ok)
+	{
+		ft_lstadd_front(&head, node1);
+		ok = (head == node1 && head->next == NULL);
+		ft_lstadd_front(&head, node2);
+		ok = ok && head == node2;
+		ok = ok && head->next == node1;
+		ok = ok && node1->next == NULL;
+	}
+	printf("ft_lstadd_front : %s\n", ok ? "OK" : "KO");
+	free(node1);
+	free(node2);
+}
 
 
 

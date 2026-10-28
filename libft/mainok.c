@@ -461,6 +461,32 @@ int main(void)
 	int passed;
 	int ok;
 
+	printf("\n========== FT_LSTADD_FRONT ==========\n");
+
+{
+	t_list	*head;
+	t_list	*node1;
+	t_list	*node2;
+	int		ok;
+
+	head = NULL;
+	node1 = ft_lstnew("1337");
+	node2 = ft_lstnew("42");
+	ok = (node1 != NULL && node2 != NULL);
+	if (ok)
+	{
+		ft_lstadd_front(&head, node1);
+		ok = (head == node1 && head->next == NULL);
+		ft_lstadd_front(&head, node2);
+		ok = ok && head == node2;
+		ok = ok && head->next == node1;
+		ok = ok && node1->next == NULL;
+	}
+	printf("ft_lstadd_front : %s\n", ok ? "OK" : "KO");
+	free(node1);
+	free(node2);
+}
+
 	passed = 0;
 	i = 0;
 	while (i < sizeof(tests) / sizeof(tests[0]))
