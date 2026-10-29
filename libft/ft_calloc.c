@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohanegg <mohanegg@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mohanegg <mohanegg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 21:58:28 by mohanegg          #+#    #+#             */
-/*   Updated: 2026/10/28 22:58:27 by mohanegg         ###   ########.fr       */
+/*   Updated: 2026/10/29 15:28:07 by mohanegg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	}
 	ptr = malloc(count * size);
-	if (ptr == NULL)
+	if (!ptr)
 	{
 		return (NULL);
 	}
